@@ -127,9 +127,8 @@ class App(QFrame):
         self.tabs[i].content.urlChanged.connect(lambda: self.SetTabContent(i, "url"))
 
         # add web view to tabs layout using splitter
-        self.tabs[i].splitview = QSplitter()
-        self.tabs[i].layout.addWidget(self.tabs[i].splitview)
-        self.tabs[i].splitview.addWidget(self.tabs[i].content)
+        self.tabs[i].layout.addWidget(self.tabs[i].content)
+        self.tabs[i].setLayout(self.tabs[i].layout)
 
         # add tab to top level stacked widget
         self.container.layout.addWidget(self.tabs[i])
